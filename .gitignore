@@ -1,1 +1,4 @@
 *.po~
+configurationCache.log
+settings.json
+targets.log
