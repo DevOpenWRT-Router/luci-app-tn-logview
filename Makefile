@@ -1,27 +1,17 @@
-﻿# Copyright 2020-2021 Rafał Wabik - IceG - From eko.one.pl forum
-# Licensed to the GNU General Public License v3.0.
+#
+# Copyright (C) 2021 gSpot (https://github.com/gSpotx2f/luci-app-log)
+#
+# This is free software, licensed under the MIT License.
+#
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-tn-logview (modded)
+PKG_VERSION:=0.5-1
 LUCI_TITLE:=Custom Advanced syslog and kernel log (tail, search, etc)
 LUCI_PKGARCH:=all
-LUCI_DEPENDS:=+luabitop
+PKG_LICENSE:=MIT
 
-define Package/luci-app-tn-logview/postinst
-#!/bin/sh
-rm -rf /tmp/luci-indexcache
-rm -rf /tmp/luci-modulecache/
-exit 0
-endef
-
-define Package/$(PKG_NAME)/config
-# shown in make menuconfig <Help>
-help
-	$(LUCI_TITLE)
-	Version: $(PKG_VERSION)-$(PKG_RELEASE)
-endef
-
+#include ../../luci.mk
 include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
